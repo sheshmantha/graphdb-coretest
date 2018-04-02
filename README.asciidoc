@@ -14,19 +14,30 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 ////
-= Simple TinkerPop Application
+= Core Graph Test
 
-This is a simple starter project that demonstrates how a basic TinkerPop project is structured with Maven. This project
-uses link:http://tinkerpop.apache.org/docs/3.3.1/reference/#tinkergraph-gremlin[TinkerGraph] as an
+Based on Simple Tinkerpop project archetype ```gremlin-archetype-tinkergraph``` from link:http://tinkerpop.apache.org/docs/current/reference/#gremlin-archetypes, it includes link:http://tinkerpop.apache.org/docs/3.3.1/reference/#tinkergraph-gremlin[TinkerGraph] as an
 embedded graph database, loads it with some data and then executes a shortest path calculation, printing the results.
+
+Further it starts to explore basic Tinkerpop & Gremlin DSL capabilities of Janus, DSE and Neo4j.
+
+For Janus and DSE, it uses local Cassandra configuration; Neo4j - TBD.
 
 == Prerequisites
 
 * Java 8 Update 40+
 * link:https://maven.apache.org/[Maven 3.x]
+* Apache Cassandra
+  * NOTE: Cassandra ```cqlsh``` appears to require Python 2.7 and not 3.x.
 
 == Building and Running
 
 [source,text]
 mvn clean package
-mvn exec:java -Dexec.mainClass="com.philips.graphdb.App"
+mvn exec:java -Dexec.mainClass="org.unjaana.graphdb.App"
+
+== To DO
+
+* Implement DSE Graph instance & basic unit test (similar to Janus)
+* Implement Neo4j Graph instance & basic unit tests
+* Build something like YCSB link:https://github.com/brianfrankcooper/YCSB/wiki for graphs using this "framework"
