@@ -17,6 +17,9 @@ import java.util.UUID;
 public final class JanusGraphDB {
     private static final JanusGraphDB singleton = new JanusGraphDB();
     public static final String VL_MOVIE = "movie";
+    private static final String VL_GENRE = "genre";
+    public static final String VL_PERSON = "person";
+    public static final String VL_USER = "user";
     private final JanusGraph graph;
 
     private JanusGraphDB() {
@@ -48,9 +51,9 @@ public final class JanusGraphDB {
             PropertyKey ratingKey = mgmt.makePropertyKey("rating").dataType(Integer.class).make();
 
 // Vertex labels
-            VertexLabel genre = mgmt.makeVertexLabel("genre").make(); // .properties("genreId","name").make();
-            VertexLabel person = mgmt.makeVertexLabel("person").make(); // .properties("personId","name").make();
-            VertexLabel user = mgmt.makeVertexLabel("user").make(); // .properties("userId","age","gender").make();
+            VertexLabel genre = mgmt.makeVertexLabel(VL_GENRE).make(); // .properties("genreId","name").make();
+            VertexLabel person = mgmt.makeVertexLabel(VL_PERSON).make(); // .properties("personId","name").make();
+            VertexLabel user = mgmt.makeVertexLabel(VL_USER).make(); // .properties("userId","age","gender").make();
             VertexLabel movie = mgmt.makeVertexLabel(VL_MOVIE).make(); // .properties("movieId","title","year","duration","country","production").make();
 
 // Edge labels
