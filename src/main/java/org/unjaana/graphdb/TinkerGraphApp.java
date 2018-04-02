@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.philips.graphdb;
+package org.unjaana.graphdb;
 
 import static org.apache.tinkerpop.gremlin.process.traversal.dsl.graph.__.*;
 

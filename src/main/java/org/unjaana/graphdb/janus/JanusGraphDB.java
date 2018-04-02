@@ -1,4 +1,4 @@
-package com.philips.graphdb.janus;
+package org.unjaana.graphdb.janus;
 
 import org.apache.tinkerpop.gremlin.structure.Edge;
 import org.apache.tinkerpop.gremlin.structure.Vertex;
@@ -7,9 +7,6 @@ import org.janusgraph.core.*;
 import org.janusgraph.core.schema.JanusGraphManagement;
 
 import java.io.IOException;
-import java.util.Date;
-import java.util.Properties;
-import java.util.UUID;
 
 /**
  * Created by shesh on 3/25/2018.
