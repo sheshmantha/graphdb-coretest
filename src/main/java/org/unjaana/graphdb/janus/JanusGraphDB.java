@@ -56,7 +56,7 @@ public final class JanusGraphDB {
 // Edge labels
             mgmt.makeEdgeLabel("knows").multiplicity(Multiplicity.MULTI).make(); // .connection("user","user").make();
             EdgeLabel ratedEdge = mgmt.makeEdgeLabel("rated").multiplicity(Multiplicity.MULTI).make(); // single().properties("rating").connection("user","movie").make();
-            mgmt.makeEdgeLabel("belongsTo").multiplicity(Multiplicity.ONE2MANY).make(); // .single().connection("movie","genre").make();
+            mgmt.makeEdgeLabel("belongsTo").multiplicity(Multiplicity.MULTI).make(); // .single().connection("movie","genre").make();
             mgmt.makeEdgeLabel("actor").multiplicity(Multiplicity.MULTI).make(); // .connection("movie","person").make();
             mgmt.makeEdgeLabel("director").multiplicity(Multiplicity.MULTI).make(); // .single().connection("movie","person").make();
 
@@ -78,10 +78,10 @@ public final class JanusGraphDB {
          mgmt.rollback();
     }
 
-    public static final JanusGraph getInstance() {
+    public static final JanusGraph getInstanceGraph() {
         return singleton.graph;
     }
-
+    public static final JanusGraphDB getSingleton() {return singleton; }
     public void loadData(String file) throws IOException {
         graph.io(IoCore.gryo()).readGraph(file);
     }

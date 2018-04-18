@@ -22,7 +22,7 @@ limitations under the License.
     <artifactId>core-test</artifactId>
     <version>0.1.0</version>
 
-    <name>Getting started with TinkerGraph</name>
+    <name>Core DB Tests</name>
 
     <packaging>jar</packaging>
     <properties>
@@ -52,6 +52,11 @@ limitations under the License.
             <groupId>org.janusgraph</groupId>
             <artifactId>janusgraph-cassandra</artifactId>
             <version>${org.janusgraph.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.datastax.dse</groupId>
+            <artifactId>dse-java-driver-graph</artifactId>
+            <version>1.5.1</version>
         </dependency>
 
     </dependencies>

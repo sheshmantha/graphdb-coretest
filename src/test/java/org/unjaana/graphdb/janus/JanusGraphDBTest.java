@@ -20,7 +20,7 @@ public class JanusGraphDBTest {
 
     @Before
     public void setUp() throws Exception {
-        graph = JanusGraphDB.getInstance();
+        graph = JanusGraphDB.getInstanceGraph();
     }
 
     @Test
@@ -62,9 +62,17 @@ public class JanusGraphDBTest {
         }
     }
 
-//    @Test
+    @Test
     public void loadData() throws Exception {
-
+        String kFile = getClass().getClassLoader().getResource("KillrVideo-small.kryo").getFile();
+        JanusGraphDB janus = JanusGraphDB.getSingleton();
+        long now = System.currentTimeMillis();
+        System.out.println("--- Ready to ingest --- ");
+        janus.loadData(kFile);
+        System.out.println("Loading took " + (System.currentTimeMillis() - now));
+        GraphTraversalSource g = graph.traversal();
+        Vertex hf = g.V().has(T.label, "person").has("name", "Harrison Ford").next();
+        assertEquals(hf.values("name").next(), "Harrison Ford");
     }
 
 }
